@@ -47,8 +47,8 @@ public class QueryProcessor {
         }*/
         else if(actualQuery.toLowerCase().contains("which of the following numbers are primes:")) {
             String[] numbersArray = getNumbersFromString(actualQuery);
-            List<Integer> intArray = Arrays.stream(numbersArray).map(x -> Integer.parseInt(x)).collect(Collectors.toList());
-            List<String> primeInts = intArray.stream().filter(x -> !isPrime(x)).map(x -> String.valueOf(x)).collect(Collectors.toList());
+            List<Integer> intArray = Arrays.stream(numbersArray).map(Integer::parseInt).collect(Collectors.toList());
+            List<String> primeInts = intArray.stream().filter(x -> !isPrime(x)).map(String::valueOf).collect(Collectors.toList());
             return String.join(", ", primeInts);
         }
          else if(actualQuery.toLowerCase().contains("dr no")) {
