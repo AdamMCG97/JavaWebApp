@@ -63,6 +63,9 @@ public class QueryProcessor {
         else if(actualQuery.toLowerCase().contains("eiffel tower")) {
             return "paris";
         }
+        else if(actualQuery.toLowerCase().contains("both a square and a cube")) {
+            return "";
+        }
         else {
             return "";
         }
