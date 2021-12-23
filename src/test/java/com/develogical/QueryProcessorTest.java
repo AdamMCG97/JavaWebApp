@@ -50,11 +50,16 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("fda79d10: which of the following numbers is both a square and a cube: 595, 169"), containsString("169"));
     }
 
-
     @Test
     public void canDetermineJamesBond() throws Exception {
         assertThat(queryProcessor.process("9e8bdc30: who played James Bond in the film Dr No"), containsString("Sean Connery"));
     }
+
+    @Test
+    public void canDeterminePrimeMinisterElectionYear() throws Exception {
+        assertThat(queryProcessor.process("4674e840: which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+    }
+
 
     @Test
     public void isNotCaseSensitive() throws Exception {

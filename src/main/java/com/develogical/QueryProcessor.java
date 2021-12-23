@@ -44,6 +44,9 @@ public class QueryProcessor {
          else if(actualQuery.toLowerCase().contains("dr no")) {
              return "Sean Connery";
         }
+        else if(actualQuery.toLowerCase().contains("theresa may")) {
+            return "2016";
+        }
         else {
             return "";
         }
