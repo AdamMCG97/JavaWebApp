@@ -47,6 +47,9 @@ public class QueryProcessor {
         else if(actualQuery.toLowerCase().contains("theresa may")) {
             return "2016";
         }
+        else if(actualQuery.toLowerCase().contains("banana")) {
+            return "yellow";
+        }
         else {
             return "";
         }
