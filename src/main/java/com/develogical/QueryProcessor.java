@@ -35,6 +35,14 @@ public class QueryProcessor {
             String[] numbers = equation[1].split(" multiplied by ");
             int total = multiplyNumbersFromString(numbers);
             return String.valueOf(total);
+        }  /*else if(actualQuery.toLowerCase().contains("both a square and a cube")) {
+            String equation = actualQuery.substring(query.indexOf(":") + 2);
+            String[] numbers = equation[1].split(" multiplied by ");
+            int total = multiplyNumbersFromString(numbers);
+            return String.valueOf(total);
+        }*/
+         else if(actualQuery.toLowerCase().contains("dr no")) {
+             return "Sean Connery";
         }
         else {
             return "";

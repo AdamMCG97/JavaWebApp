@@ -46,6 +46,17 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canDetermineCubeAndSquareNumbers() throws Exception {
+        assertThat(queryProcessor.process("fda79d10: which of the following numbers is both a square and a cube: 595, 169"), containsString("169"));
+    }
+
+
+    @Test
+    public void canDetermineJamesBond() throws Exception {
+        assertThat(queryProcessor.process("9e8bdc30: who played James Bond in the film Dr No"), containsString("Sean Connery"));
+    }
+
+    @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
     }
