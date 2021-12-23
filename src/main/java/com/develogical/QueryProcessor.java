@@ -28,13 +28,27 @@ public class QueryProcessor {
         } else if(actualQuery.toLowerCase().contains("plus")) {
             String[] equation = actualQuery.split("is ");
             String[] numbers = equation[1].split(" plus ");
-            int total = Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+            int total = sumNumbersFromString(numbers);
+            return String.valueOf(total);
+        } else if(actualQuery.toLowerCase().contains("multiplied")) {
+            String[] equation = actualQuery.split("is ");
+            String[] numbers = equation[1].split(" multiplied by ");
+            int total = multiplyNumbersFromString(numbers);
             return String.valueOf(total);
         }
         else {
             return "";
         }
     }
+
+    private int sumNumbersFromString(String[] numbers) {
+        return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+    }
+
+    private int multiplyNumbersFromString(String[] numbers) {
+        return Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1]);
+    }
+
 
     private String[] getNumbersFromString(String query) {
         String numbersString = query.substring(query.indexOf(":") + 2);

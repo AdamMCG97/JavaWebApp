@@ -39,7 +39,12 @@ public class QueryProcessorTest {
     public void canAddNumbers() throws Exception {
         assertThat(queryProcessor.process("e001cee0: what is 17 plus 6"), containsString("23"));
     }
-    
+
+    @Test
+    public void canMultiplyNumbers() throws Exception {
+        assertThat(queryProcessor.process("e001cee0: what is 5 multiplied by 2"), containsString("10"));
+    }
+
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
