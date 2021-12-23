@@ -47,7 +47,9 @@ public class QueryProcessor {
         }
         else if(actualQuery.toLowerCase().contains("fibonacci")) {
             String[] equation = actualQuery.split("is the ");
-            return String.valueOf(fibonnaciOf(5));
+            String[] number = equation[1].split(" ");
+            String actualNumber = number[0].substring(0, number[0].length() - 2);
+            return String.valueOf(fibonnaciOf(Integer.parseInt(actualNumber)));
         }
          else if(actualQuery.toLowerCase().contains("dr no")) {
              return "Sean Connery";

@@ -90,4 +90,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("b5a199b0: what is the 5th number in the Fibonacci sequence"), containsString("8"));
     }
 
+    @Test
+    public void canCalculateDoubleFibonacciNumber() throws Exception {
+        assertThat(queryProcessor.process("b5a199b0: what is the 15th number in the Fibonacci sequence"), containsString("987"));
+    }
+
 }
