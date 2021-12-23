@@ -46,6 +46,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canMultiplyNumbersWithZero() throws Exception {
+        assertThat(queryProcessor.process("e001cee0: what is 5 multiplied by 0"), containsString("0"));
+    }
+
+    @Test
     public void canDetermineCubeAndSquareNumbers() throws Exception {
         assertThat(queryProcessor.process("fda79d10: which of the following numbers is both a square and a cube: 595, 169"), containsString("169"));
     }
@@ -68,5 +73,10 @@ public class QueryProcessorTest {
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
+    }
+
+    @Test
+    public void knowsWhereEiffelTower() throws Exception {
+        assertThat(queryProcessor.process("bdaed020: which city is the Eiffel tower in"), containsString("paris"));
     }
 }

@@ -50,6 +50,9 @@ public class QueryProcessor {
         else if(actualQuery.toLowerCase().contains("banana")) {
             return "yellow";
         }
+        else if(actualQuery.toLowerCase().contains("eiffel tower")) {
+            return "paris";
+        }
         else {
             return "";
         }
