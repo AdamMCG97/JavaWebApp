@@ -26,8 +26,13 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void knowsMyCompany() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest: 5, 245, 10"), containsString("245"));
+    public void canCalculateLargestOfThreeNumbers() throws Exception {
+        assertThat(queryProcessor.process("e6241de0: which of the following numbers is the largest: 5, 245, 10"), containsString("245"));
+    }
+
+    @Test
+    public void canCalculateLargestOfOneNumber() throws Exception {
+        assertThat(queryProcessor.process("e6241de0: which of the following numbers is the largest: 75"), containsString("75"));
     }
 
     @Test
