@@ -1,6 +1,10 @@
 package com.develogical;
 
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -41,6 +45,12 @@ public class QueryProcessor {
             int total = multiplyNumbersFromString(numbers);
             return String.valueOf(total);
         }*/
+        else if(actualQuery.toLowerCase().contains("which of the following numbers are primes:")) {
+            String[] numbersArray = getNumbersFromString(actualQuery);
+            List<Integer> intArray = Arrays.stream(numbersArray).map(x -> Integer.parseInt(x)).collect(Collectors.toList());
+            List<String> primeInts = intArray.stream().filter(x -> !isPrime(x)).map(x -> String.valueOf(x)).collect(Collectors.toList());
+            return String.join(", ", primeInts);
+        }
          else if(actualQuery.toLowerCase().contains("dr no")) {
              return "Sean Connery";
         }
@@ -56,6 +66,18 @@ public class QueryProcessor {
         else {
             return "";
         }
+    }
+
+    private boolean isPrime(Integer num) {
+        boolean flag = false;
+        for (int i = 2; i <= num / 2; ++i) {
+            // condition for nonprime number
+            if (num % i == 0) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     private int sumNumbersFromString(String[] numbers) {

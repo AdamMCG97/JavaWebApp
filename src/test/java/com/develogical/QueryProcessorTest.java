@@ -79,4 +79,11 @@ public class QueryProcessorTest {
     public void knowsWhereEiffelTower() throws Exception {
         assertThat(queryProcessor.process("bdaed020: which city is the Eiffel tower in"), containsString("paris"));
     }
+
+    @Test
+    public void knowsWhichNumbersArePrime() throws Exception {
+        assertThat(queryProcessor.process("bdaed020: which of the following numbers are primes: 151, 25, 127, 672"), containsString("151, 127"));
+    }
+
+
 }
