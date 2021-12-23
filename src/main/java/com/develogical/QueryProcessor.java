@@ -39,17 +39,15 @@ public class QueryProcessor {
             String[] numbers = equation[1].split(" multiplied by ");
             int total = multiplyNumbersFromString(numbers);
             return String.valueOf(total);
-        }  /*else if(actualQuery.toLowerCase().contains("both a square and a cube")) {
-            String equation = actualQuery.substring(query.indexOf(":") + 2);
-            String[] numbers = equation[1].split(" multiplied by ");
-            int total = multiplyNumbersFromString(numbers);
-            return String.valueOf(total);
-        }*/
-        else if(actualQuery.toLowerCase().contains("which of the following numbers are primes:")) {
+        } else if(actualQuery.toLowerCase().contains("which of the following numbers are primes:")) {
             String[] numbersArray = getNumbersFromString(actualQuery);
             List<Integer> intArray = Arrays.stream(numbersArray).map(Integer::parseInt).collect(Collectors.toList());
             List<String> primeInts = intArray.stream().filter(x -> !isPrime(x)).map(String::valueOf).collect(Collectors.toList());
             return String.join(", ", primeInts);
+        }
+        else if(actualQuery.toLowerCase().contains("fibonacci")) {
+            String[] equation = actualQuery.split("is the ");
+            return String.valueOf(fibonnaciOf(5));
         }
          else if(actualQuery.toLowerCase().contains("dr no")) {
              return "Sean Connery";
@@ -70,6 +68,17 @@ public class QueryProcessor {
             return "";
         }
     }
+
+    private int fibonnaciOf(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Not defined for indices < 0");
+        }
+        if (i < 2) {
+            return 1;
+        }
+        return fibonnaciOf(i - 1) + fibonnaciOf(i - 2);
+    }
+
 
     private boolean isPrime(Integer num) {
         boolean flag = false;

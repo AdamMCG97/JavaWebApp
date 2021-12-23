@@ -85,5 +85,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("bdaed020: which of the following numbers are primes: 151, 25, 127, 672"), containsString("151, 127"));
     }
 
+    @Test
+    public void canCalculateFibonacciNumber() throws Exception {
+        assertThat(queryProcessor.process("b5a199b0: what is the 5th number in the Fibonacci sequence"), containsString("8"));
+    }
 
 }
