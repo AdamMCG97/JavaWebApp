@@ -34,7 +34,12 @@ public class QueryProcessorTest {
     public void canCalculateLargestOfOneNumber() throws Exception {
         assertThat(queryProcessor.process("e6241de0: which of the following numbers is the largest: 75"), containsString("75"));
     }
-
+    
+    @Test
+    public void canAddNumbers() throws Exception {
+        assertThat(queryProcessor.process("e001cee0: what is 17 plus 6"), containsString("23"));
+    }
+    
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));

@@ -5,12 +5,12 @@ public class QueryProcessor {
 
     public String process(String query) {
         try {
+            System.out.println("Query received: " + query);
             return processQuery(query);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             return "Error processing query" ;
         }
-
     }
 
     private String processQuery(String query) {
@@ -25,6 +25,11 @@ public class QueryProcessor {
         } else if(actualQuery.toLowerCase().contains("which of the following numbers is the largest:")) {
             String[] numbersArray = getNumbersFromString(actualQuery);
             return String.valueOf(maximumOfStringArray(numbersArray));
+        } else if(actualQuery.toLowerCase().contains("plus")) {
+            String[] equation = actualQuery.split("is ");
+            String[] numbers = equation[1].split(" plus ");
+            int total = Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+            return String.valueOf(total);
         }
         else {
             return "";
